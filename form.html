@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+
+        }
+    </style>
+
+</head>
+<body>
+
+<section class="text-gray-600 body-font relative">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="lg:w-1/2 md:w-2/3 mx-auto">
+
+            <div id="ErrorAlert" class="hidden rounded-md bg-red-50 p-4 mb-2 border-t-4 border-red-300">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor" class="w-6 h-6 text-red-400">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-sm font-medium text-red-800">Leider ist ein Fehler aufgetreten:</h3>
+                        <p class="mt-2 text-sm text-red-700">Bitte überprüfen Sie, ob alle Pflichtfelder ausgefüllt und
+                            der Datenschutzerklärung zugestimmt wurde.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="SuccessAlert" class="hidden rounded-md bg-green-50 p-4 mb-2 border-t-4 border-green-400">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor" class="w-6 h-6 text-green-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-sm font-medium text-green-800">Die Nachricht wurde versendet!</h3>
+                        <p class="mt-2 text-sm text-green-700">Wir werden uns so bald wie möglich bei Ihnen melden!</p>
+                    </div>
+                </div>
+            </div>
+
+            <form method="POST" id="contact-form">
+                <div class="flex flex-wrap -m-2">
+
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <label for="company" class="leading-7 text-sm text-gray-600">Firma:</label>
+                            <input type="text" id="company" name="company"
+                                   class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="firstname" class="leading-7 text-sm text-gray-600">Vorname:</label> <span
+                                class="text-red-500 px-1 py-1 absolute rounded-full">*</span>
+                            <input type="text" id="firstname" name="firstname" required
+                                   class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="lastname" class="leading-7 text-sm text-gray-600">Nachname:</label> <span
+                                class="text-red-500 px-1 py-1 absolute rounded-full">*</span>
+                            <input type="text" id="lastname" name="lastname" required
+                                   class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-600">E-Mail:</label> <span
+                                class="text-red-500 px-1 py-1 absolute rounded-full">*</span>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full bg-gray-100 bg -opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="phone" class="leading-7 text-sm text-gray-600">Telefon:</label>
+                            <input type="tel" id="phone" name="phone"
+                                   class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <label for="message" class="leading-7 text-sm text-gray-600">Nachricht:</label> <span
+                                class="text-red-500 px-1 py-1 absolute rounded-full">*</span>
+                            <textarea id="message" name="message" required
+                                      class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="pl-2 w-full flex items-center">
+                        <input id="privacy_checkbox" name="privacy_checkbox" type="checkbox" value="1" required
+                               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="privacy_checkbox" class="ml-2 text-sm text-gray-600">Ich stimme der <a href="#"
+                                                                                                           class="text-blue-500 hover:underline">Datenschutzerklärung</a>
+                            zu. <span class="text-red-500 px-1 py-0.5 absolute rounded-full">*</span></label>
+                    </div>
+
+                    <div class="pt-6 pl-2 w-full">
+                        <button id="SendButton" class="flex text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                            Absenden
+                        </button>
+                    </div>
+
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <span class="text-red-500 py-0.5 absolute rounded-full">*</span> <span
+                                class="text-sm text-gray-400 ml-4">Pflichtfelder</span>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<script type="application/javascript">
+
+    // Formular
+    const form = document.getElementById("contact-form")
+    form.addEventListener("submit", onFormSubmit);
+
+    // Aktion, wenn auf den Absenden-Button geklickt wird
+    function onFormSubmit(event) {
+
+        event.preventDefault();
+
+        // Button
+        const SendButton = document.getElementById("SendButton");
+        SendButton.classList.add('animate-bounce');
+        SendButton.innerText="...sende...";
+
+        // Alerts
+        const SuccessAlert = document.getElementById("SuccessAlert");
+        const ErrorAlert = document.getElementById("ErrorAlert");
+
+        // Alerts zurücksetzen - ausblenden
+        SuccessAlert.classList.remove('block');
+        SuccessAlert.classList.add('hidden');
+        ErrorAlert.classList.remove('block');
+        ErrorAlert.classList.add('hidden');
+
+        // Alle Formular Daten ermitteln
+        const data = new FormData(event.target);
+
+        // Einzelne Formularfelder - Können bei Bedarf in JavaScript weiter verarbeitet/geprüft werden
+        //const company = data.get("company");
+        //const firstname = data.get("firstname");
+        //const lastname = data.get("lastname");
+        //const email = data.get("email");
+        //const message = data.get("message");
+        //const privacy_checkbox = data.get("privacy_checkbox");
+
+        // Formular an das PHP Script senden
+        fetch('./send.php', {
+            method: 'POST',
+            body: data,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        }).then(function (response) {
+
+            if (response.ok) {
+                // Erfolgsmeldung einblenden
+                //console.info('OK.', response);
+                SuccessAlert.classList.remove('hidden');
+                SuccessAlert.classList.add('block');
+                SuccessAlert.scrollIntoView();
+                form.reset(); // Formular zurücksetzen
+            } else {
+                // Fehlermeldung einblenden
+                //console.warn('Error.', response);
+                ErrorAlert.classList.remove('hidden');
+                ErrorAlert.classList.add('block');
+                ErrorAlert.scrollIntoView();
+            }
+
+            SendButton.innerText="Absenden";
+            SendButton.classList.remove('animate-bounce');
+
+        });
+
+    }
+
+</script>
+
+</body>
+</html>
