@@ -1,2 +1,2 @@
 # contact_form
-Contact form example
+Contact form example.
